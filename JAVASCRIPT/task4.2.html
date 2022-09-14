@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function Bonus(form) 
+        { 
+            var salary = parseInt(form.salary.value);
+            var department = form.dept.value;
+            var bonus;
+            
+            if(department=="IT"){
+                bonus=salary+((salary*50)/100);
+            }
+            else if (department=="Testing") {
+                bonus=salary+((salary*45)/100);
+            }
+            else if (department=="Admin") {
+                
+                bonus=salary+((salary*30)/100);
+            } 
+            else{
+                bonus=salary+((salary*20)/100);
+            }
+            document.getElementById("bonus").innerHTML = bonus;
+        }
+    </script>
+    
+    <style>
+        .box {
+            border: orange 2px solid;
+            background-color:yellow;
+            padding-left: 20px;
+            height: 300px;
+            width: 20%;
+            margin-left: 40%;
+            margin-top: 10%;
+            float: left;
+        }
+    
+        .boxmsg {
+            font-size: 17px;
+            color:rgb(88, 17, 73);
+        }
+        </style>
+</head>
+<body>
+    <div class="box">
+        <h2 style="color: maroon; text-align:center">Calculate Bonus </h2>
+        <form>
+            <label>Enter your Salary</label><br>
+            <input type="number" name="salary" placeholder="Salary" required><br><br>
+    
+            <label>Select Department</label><br>
+            <input type="radio" id="it" name="dept" value="IT">
+            <label for="it"> IT</label> <br>
+            <input type="radio" id="testing" name="dept" value="Testing">
+            <label for="testing"> Testing </label> <br>
+            <input type="radio" id="Admin" name="dept" value="Admin">
+            <label for="Admin"> Admin</label> <br>
+            <input type="radio" id="Other" name="dept" value="Other">
+            <label for="Other"> Other </label> <br><br>  
+            <input type="button" value="Check Bonus" onclick="Bonus(this.form)">
+        </form>
+        <br>
+        <div class="boxMsg">
+            <span>Total Salary:</span>
+            <b id="bonus"></b>
+        </div>
+    </div>
+</body>
+</html>
